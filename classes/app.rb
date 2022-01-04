@@ -1,4 +1,4 @@
-require './book'
+require './classes/book'
 
 class App
   def initialize
@@ -10,6 +10,7 @@ class App
     new_book_instance = Book.new(*new_book)
     hash = {
       'publisher' => new_book_instance.publisher,
+      'publish_date' => new_book_instance.publish_date,
       'cover_state' => new_book_instance.cover_state
     }
     @books << hash

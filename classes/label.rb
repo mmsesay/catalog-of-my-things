@@ -1,4 +1,4 @@
-# require './classes/item'
+require './classes/item'
 
 class Label
   attr_accessor :title, :color

@@ -1,4 +1,4 @@
-require './app'
+require './classes/app'
 require './modules/book_module'
 
 class Main
