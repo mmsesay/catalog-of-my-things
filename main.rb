@@ -1,6 +1,9 @@
 require './app'
+require './modules/book_module'
 
 class Main
+  include BookModule
+
   def initialize
     @app = App.new
   end
@@ -24,7 +27,7 @@ class Main
     user_input = gets.chomp
     case user_input
     when '1'
-      p 'TODO: all books method'
+      @app.list_all_books
     when '2'
       p 'TODO: all music albums method'
     when '3'
@@ -36,7 +39,7 @@ class Main
     when '6'
       p 'TODO: all authors method'
     when '7'
-      p 'TODO: add a book method'
+      add_new_book_details
     when '8'
       p 'TODO: add a music album'
     when '9'
