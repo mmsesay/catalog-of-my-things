@@ -1,4 +1,4 @@
-# require './classes/item'
+# require_relative './classes/item'
 
 class Genre
   attr_accessor :name
