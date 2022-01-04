@@ -1,6 +1,8 @@
-class App
+require './app'
+
+class Main
   def initialize
-    # Add arrays later on
+    @app = App.new
   end
 
   def menu
@@ -43,6 +45,8 @@ class App
       puts 'Exiting the application...'
       sleep 2
       exit
+    else
+      puts "\nERROR: Invalid option. Please select a digit from (1-10)\n"
     end
   end
 
@@ -58,9 +62,4 @@ class App
   end
 end
 
-def main
-  app = App.new
-  app.run
-end
-
-main
+Main.new.run
