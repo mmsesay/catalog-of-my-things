@@ -1,6 +1,10 @@
+$LOAD_PATH << '.'
 require './classes/book'
+require './classes/label'
 
 class App
+  attr_reader :books, :labels
+
   def initialize
     @books = []
     @labels = []
@@ -17,7 +21,12 @@ class App
   end
 
   def add_label(new_label)
-    @labels << new_label
+    new_label_instance = Label.new(*new_label)
+    hash = {
+      'title' => new_label_instance.title,
+      'color' => new_label_instance.color
+    }
+    @labels << hash
   end
 
   def list_all_books
@@ -25,12 +34,27 @@ class App
 
     @books.each do |book|
       puts book
-      puts "\n-------------------------------"
+      puts "\n---------------------------------------------"
       puts "\nALL BOOKS\n\n"
-      puts "\nPublisher \t| Cover State"
-      puts '-------------------------------'
-      puts "#{book['publisher']} \t\t| #{book['cover_state']}"
-      puts "\n-------------------------------"
+      puts "\nPublisher \t| Publish Date \t| Cover State"
+      puts '-----------------------------------------------'
+      # puts "#{book.publisher} \t\t| #{book.publish_date} \t| #{book.cover_state}"
+      puts "#{book['publisher']} \t\t| #{book['publish_date']} \t| #{book['cover_state']}"
+      puts "\n---------------------------------------------"
+    end
+  end
+
+  def list_all_labels
+    puts "\nNote: No Label available." if @labels.empty?
+
+    @labels.each do |label|
+      puts label
+      puts "\n-----------------------"
+      puts "\nALL LABELS\n\n"
+      puts "\nLabel \t| Color"
+      puts '-------------------------'
+      puts "#{label['title']} \t| #{label['color']}"
+      puts "\n-----------------------"
     end
   end
 end

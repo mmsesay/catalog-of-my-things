@@ -35,7 +35,7 @@ class Main
     when '4'
       p 'TODO: all genre method'
     when '5'
-      p 'TODO: all label method'
+      @app.list_all_labels
     when '6'
       p 'TODO: all authors method'
     when '7'
@@ -45,6 +45,7 @@ class Main
     when '9'
       p 'TODO: add a game method'
     when '10'
+      preserve_files
       puts 'Exiting the application...'
       sleep 2
       exit
@@ -58,7 +59,7 @@ class Main
 
     puts 'Welcome to the catalog of my things'
 
-    while user_input != '7'
+    while user_input != '10'
       menu
       handle_menu_selection
     end
