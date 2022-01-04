@@ -1,3 +1,5 @@
+# require './classes/item'
+
 class Book < Item
   attr_accessor :publisher, :cover_state
 
