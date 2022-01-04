@@ -45,7 +45,7 @@ class Main
     when '9'
       p 'TODO: add a game method'
     when '10'
-      preserve_files
+      @app.preserve_files
       puts 'Exiting the application...'
       sleep 2
       exit

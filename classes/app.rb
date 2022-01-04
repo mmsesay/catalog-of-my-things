@@ -1,13 +1,17 @@
-$LOAD_PATH << '.'
 require './classes/book'
 require './classes/label'
+require './modules/preserver_module'
 
 class App
+  include PreserverModule
+
   attr_reader :books, :labels
 
   def initialize
     @books = []
     @labels = []
+
+    load_data
   end
 
   def add_book(new_book)
@@ -32,29 +36,38 @@ class App
   def list_all_books
     puts "\nNote: No Books available." if @books.empty?
 
+    puts "\n---------------------------------------------"
+    puts "\nALL BOOKS\n\n"
+    puts "\nPublisher \t| Publish Date \t| Cover State"
+    puts '-------------------------------------------------'
     @books.each do |book|
-      puts book
-      puts "\n---------------------------------------------"
-      puts "\nALL BOOKS\n\n"
-      puts "\nPublisher \t| Publish Date \t| Cover State"
-      puts '-----------------------------------------------'
-      # puts "#{book.publisher} \t\t| #{book.publish_date} \t| #{book.cover_state}"
       puts "#{book['publisher']} \t\t| #{book['publish_date']} \t| #{book['cover_state']}"
-      puts "\n---------------------------------------------"
+      puts "\n-------------------------------------------------"
     end
   end
 
   def list_all_labels
     puts "\nNote: No Label available." if @labels.empty?
 
+    puts "\n----------------------------"
+    puts "\nALL LABELS\n\n"
+    puts "\nLabels \t| Color"
+    puts '----------------------------'
     @labels.each do |label|
-      puts label
-      puts "\n-----------------------"
-      puts "\nALL LABELS\n\n"
-      puts "\nLabel \t| Color"
-      puts '-------------------------'
-      puts "#{label['title']} \t| #{label['color']}"
-      puts "\n-----------------------"
+      puts "#{label['title'].strip} \t| #{label['color']}"
+      puts "\n----------------------------"
     end
+  end
+
+  def preserve_files
+    save_data_as_json(@books, 'books')
+    save_data_as_json(@labels, 'labels')
+  end
+
+  private
+
+  def load_data
+    @books = load_file('books')
+    @labels = load_file('labels')
   end
 end

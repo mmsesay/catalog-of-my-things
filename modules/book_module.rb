@@ -1,8 +1,4 @@
-require './modules/preserver_module'
-
 module BookModule
-  include PreserverModule
-
   def capture_input(request_text)
     print "#{request_text}: "
 
@@ -33,10 +29,5 @@ module BookModule
     @app.add_label([title, color])
     puts "\nNew Label Added!"
     puts "\n-------------------------------"
-  end
-
-  def preserve_files
-    save_data_as_json(@app.books, 'books')
-    save_data_as_json(@app.labels, 'labels')
   end
 end

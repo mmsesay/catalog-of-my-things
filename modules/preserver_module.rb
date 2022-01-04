@@ -6,7 +6,7 @@ module PreserverModule
   end
 
   def load_file(file_name)
-    if File.exist?(file_name)
+    if File.exist?("./json/#{file_name}.json")
       JSON.parse(File.read("./json/#{file_name}.json"))
     else
       []
