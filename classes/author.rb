@@ -1,9 +1,9 @@
 class Author
-  attr_accessor :f_name, :l_name, :items
-  
-  def initialize(f_name, l_name)
-    @f_name = f_name
-    @l_name = l_name
+
+  def initialize(first_name, last_name)
+    @first_name = first_name
+    @last_name = last_name
     @items = []
   end
+  
 end
