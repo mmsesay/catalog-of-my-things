@@ -1,8 +1,10 @@
-require './classes/app'
-require './modules/book_module'
+require_relative './classes/app'
+require_relative './modules/book_module'
+require_relative './modules/music_album_functions'
 
 class Main
   include BookModule
+  include MusicAlbumFunction
 
   def initialize
     @app = App.new
@@ -29,11 +31,11 @@ class Main
     when '1'
       @app.list_all_books
     when '2'
-      p 'TODO: all music albums method'
+      @app.list_all_albums
     when '3'
       p 'TODO: all games method'
     when '4'
-      p 'TODO: all genre method'
+      @app.list_all_genres
     when '5'
       @app.list_all_labels
     when '6'
@@ -41,7 +43,7 @@ class Main
     when '7'
       add_new_book_details
     when '8'
-      p 'TODO: add a music album'
+      add_new_album_details
     when '9'
       p 'TODO: add a game method'
     when '10'
