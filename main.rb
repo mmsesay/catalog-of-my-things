@@ -1,6 +1,6 @@
-require './classes/app'
-require './modules/book_module'
-require './modules/music_album_functions'
+require_relative './classes/app'
+require_relative './modules/book_module'
+require_relative './modules/music_album_functions'
 
 class Main
   include BookModule
