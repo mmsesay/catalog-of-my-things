@@ -1,8 +1,8 @@
-require_relative '../classes/author'
+require_relative '../classes/game'
 
 describe Game do
   before :each do
-    @game1 = Game.new('John', 'Doe')
+    @game1 = Game.new(Time.now, Time.now)
   end
 
   describe 'Instance Test' do
@@ -16,7 +16,7 @@ describe Game do
 
     it 'Should be able to set multiplayer property to true' do
       @game1.multiplayer = true
-      expect(@game.multiplayer).to eq true
+      expect(@game1.multiplayer).to eq true
     end
   end
 end
