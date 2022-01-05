@@ -5,5 +5,14 @@ class Author
     @last_name = last_name
     @items = []
   end
+
+  def add_item(item)
+    if item.author
+      nil
+    else
+      item.author = self
+      @items << item
+    end
+  end
   
 end
