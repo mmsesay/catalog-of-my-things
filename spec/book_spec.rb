@@ -6,6 +6,10 @@ describe Book do
       @book = Book.new('John Doe', '2022/1/5', 'good')
     end
 
+    it 'should be a Book class instance' do
+      expect(@book).to be_an_instance_of Book
+    end
+
     it 'should return correct book publisher' do
       expect(@book.publisher).to eq 'John Doe'
     end
@@ -20,6 +24,10 @@ describe Book do
 
     it 'should return false unless @archived || cover_state == bad' do
       expect(@book.can_be_archived?).to eq false
+    end
+
+    it 'should return false for parent archive' do
+      expect(@book.archived).to eq false
     end
   end
 end
