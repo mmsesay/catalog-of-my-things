@@ -8,6 +8,6 @@ CREATE TABLE Game(
   PRIMARY KEY (id),
   CONSTRAINT fk_game
     FOREIGN KEY(author_id) 
-	    REFERENCES author(id)
+	    REFERENCES Author(id)
 	      ON DELETE SET NULL
 );
