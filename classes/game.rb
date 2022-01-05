@@ -5,5 +5,10 @@ class Game < Item
     @last_played_at = last_played_at
     @multiplayer = multiplayer
   end
+
   attr_accessor :last_played_at, :author, :multiplayer
+
+  def add_author(author)
+    !author.items.include?(self) && author.add_item(self)
+  end
 end
