@@ -6,7 +6,7 @@ class Author
   end
 
   def add_item(item)
-    if item.author || @items.include? item
+    if item.author || @items.include?(item)
       nil
     else
       item.author = self
