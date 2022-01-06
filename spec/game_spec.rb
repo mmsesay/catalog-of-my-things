@@ -29,16 +29,16 @@ describe Game do
       expect(@game1.author).to eq @author
     end
 
-    it 'Should have author with Two items' do
-      expect(@game1.author.items.size).to eq 2
-    end
-
     it 'should return false for can be archived' do
       expect(@game1.can_be_archived?).to eq false
     end
 
     it 'should return true for can be archived' do
       expect(@game2.can_be_archived?).to eq true
+    end
+
+    it 'Should have author with Two items' do
+      expect(@game1.author.items.size).to eq 2
     end
   end
 end
