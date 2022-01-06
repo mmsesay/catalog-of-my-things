@@ -2,7 +2,7 @@ require_relative '../classes/game'
 
 describe Game do
   before :each do
-    @game1 = Game.new(Time.now, Time.now)
+    @game1 = Game.new('Conquer', Time.now, Time.now)
   end
 
   describe 'Instance Test' do
