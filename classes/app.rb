@@ -76,7 +76,7 @@ class App
     hash = {
       'name' => new_game_instance.name,
       'publish_date' => new_game_instance.publish_date,
-      'last_played_at' => new_game_instance.last_played_at
+      'last_played_at' => new_game_instance.last_played_at,
       'multiplayer' => new_game_instance.multiplayer
     }
     @games << hash
