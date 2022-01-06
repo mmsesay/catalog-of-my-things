@@ -16,7 +16,22 @@ module BookModule
     @app.add_book([publisher, publish_date, cover_state])
     puts "\nNew Book Added!"
     puts "\n-------------------------------"
-    add_new_label_details
+
+    add_new_author_details # request for author details
+  end
+
+  def add_new_author_details
+    puts "\n-------------------------------"
+    puts "\nENTER AUTHOR DETAILS\n\n"
+
+    first_name = capture_input('Input First Name')
+    last_name = capture_input('Input Last Name')
+
+    @app.add_author([first_name, last_name])
+    puts "\nNew Author Added!"
+    puts "\n-------------------------------"
+
+    add_new_label_details # request for label details
   end
 
   def add_new_label_details
