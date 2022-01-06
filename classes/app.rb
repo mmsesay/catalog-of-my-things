@@ -156,7 +156,7 @@ class App
     puts "\nName \t| Publish Date \t| Last Played \t| Multiplayer"
     puts '-------------------------------------------------'
     @games.each do |game|
-      puts "#{game['name']} \t\t| #{game['publish_date']} \t| #{game['last_played']} \t| #{game['multiplayer']}"
+      puts "#{game['name']} \t\t| #{game['publish_date']} \t| #{game['last_played_at']} \t| #{game['multiplayer']}"
       puts "\n-------------------------------------------------"
     end
   end
