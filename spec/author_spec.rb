@@ -13,7 +13,7 @@ describe Author do
     end
 
     it 'Should have an empty items at first' do
-      expect(@author1.items.size).to eq 0
+      expect(@author1.items.length).to eq 0
     end
 
     it 'Should return correct full name' do
@@ -23,7 +23,7 @@ describe Author do
 
     it 'author should have 1 item in items' do
       @author1.add_item(@game1)
-      expect(@author1.items.size).to eq 1
+      expect(@author1.items.length).to eq 1
     end
   end
 end
