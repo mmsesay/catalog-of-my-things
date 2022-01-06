@@ -2,6 +2,7 @@ require_relative './book'
 require_relative './music_album'
 require_relative './genre'
 require_relative './label'
+require_relative './author'
 require_relative '../modules/preserver_module'
 
 class App
@@ -12,6 +13,7 @@ class App
   def initialize
     @books = []
     @labels = []
+    @authors = []
     @albums = []
     @genres = []
 
@@ -31,10 +33,21 @@ class App
   def add_label(new_label)
     new_label_instance = Label.new(*new_label)
     hash = {
+      'id' => new_label_instance.id,
       'title' => new_label_instance.title,
       'color' => new_label_instance.color
     }
     @labels << hash
+  end
+
+  def add_author(new_author)
+    new_author_instance = Author.new(*new_author)
+    hash = {
+      'id' => new_author_instance.id,
+      'first_name' => new_author_instance.first_name,
+      'last_name' => new_author_instance.last_name
+    }
+    @authors << hash
   end
 
   def add_album(album_name, publish_date, genre_name, on_spotify)
@@ -70,16 +83,29 @@ class App
     end
   end
 
+  def list_all_authors
+    puts "\nNote: No Author available." if @authors.empty?
+
+    puts "\n----------------------------"
+    puts "\nALL AUTHORS\n\n"
+    puts "\nFirst Name \t| Last Name"
+    puts '----------------------------'
+    @authors.each do |author|
+      puts "#{author['first_name'].to_s.strip} \t\t| #{author['last_name'].to_s.strip.rjust(3)}"
+      puts "\n----------------------------"
+    end
+  end
+
   def list_all_labels
     puts "\nNote: No Label available." if @labels.empty?
 
-    puts "\n----------------------------"
+    puts "\n-----------------------------------"
     puts "\nALL LABELS\n\n"
-    puts "\nLabels \t| Color"
-    puts '----------------------------'
+    puts "\nLabels \t\t| Color"
+    puts '-----------------------------------'
     @labels.each do |label|
-      puts "#{label['title'].strip} \t| #{label['color']}"
-      puts "\n----------------------------"
+      puts "#{label['title'].to_s.strip} \t\t| #{label['color'].to_s.strip.rjust(2)}"
+      puts "\n-----------------------------------"
     end
   end
 
@@ -91,9 +117,7 @@ class App
     puts "\Genre \t| On spotify? \t| Album Name \t| Publish Date"
     puts '-------------------------------------------------------'
     @albums.each do |album|
-      # rubocop:disable Layout/LineLength
       puts "#{album['genre'].to_s.strip} \t| #{album['on_spotify?'].to_s.strip.rjust(10)} \t| #{album['album_name'].to_s.strip.rjust(10)} \t| #{album['publish_date'].to_s.strip.rjust(10)}"
-      # rubocop:enable Layout/LineLength
       puts "\n---------------------------------------------------"
     end
   end
@@ -113,6 +137,7 @@ class App
 
   def preserve_files
     save_data_as_json(@books, 'books')
+    save_data_as_json(@authors, 'authors')
     save_data_as_json(@labels, 'labels')
     save_data_as_json(@albums, 'albums')
     save_data_as_json(@genres, 'genres')
@@ -123,6 +148,7 @@ class App
   def load_data
     @books = load_file('books')
     @labels = load_file('labels')
+    @authors = load_file('authors')
     @albums = load_file('albums')
     @genres = load_file('genres')
   end
