@@ -16,7 +16,7 @@ class Game < Item
   def can_be_archived?
     bool = super
     now_year = Time.new.year
-    year_last_played = @last_played_at[:year]
+    year_last_played = @last_played_at.year
     archive = now_year - year_last_played
     archive && bool
   end
