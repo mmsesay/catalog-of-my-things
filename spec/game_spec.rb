@@ -1,8 +1,14 @@
 require_relative '../classes/game'
+require_relative '../classes/author'
+require 'date'
 
 describe Game do
   before :each do
     @game1 = Game.new(Time.now, Time.now)
+    @game2 = Game.new(Date.parse('1989/01/01'), Date.parse('1987/01/01'))
+    @author = Author.new('Steven', 'Gerrard')
+    @author.add_item(@game1)
+    @author.add_item(@game2)
   end
 
   describe 'Instance Test' do
@@ -17,6 +23,22 @@ describe Game do
     it 'Should be able to set multiplayer property to true' do
       @game1.multiplayer = true
       expect(@game1.multiplayer).to eq true
+    end
+
+    it 'Should have author' do
+      expect(@game1.author).to eq @author
+    end
+
+    it 'author should have game in items' do
+      expect(@author.items[0]).to eq @game1
+    end
+
+    it 'should return false for can be archived' do
+      expect(@game1.can_be_archived?).to eq false
+    end
+
+    it 'should return true for can be archived' do
+      expect(@game2.can_be_archived?).to eq true
     end
   end
 end
