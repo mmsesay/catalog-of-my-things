@@ -29,10 +29,6 @@ describe Game do
       expect(@game1.author).to eq @author
     end
 
-    it 'author should have game in items' do
-      expect(@author.items[0]).to eq @game1
-    end
-
     it 'should return false for can be archived' do
       expect(@game1.can_be_archived?).to eq false
     end
