@@ -4,7 +4,7 @@ require_relative '../classes/game'
 describe Author do
   before :each do
     @author1 = Author.new('John', 'Doe')
-    @game1 = Game.new(Time.now, Time.now)
+    @game1 = Game.new('Conquer', Time.now, Time.now)
   end
 
   describe 'Instance Test' do

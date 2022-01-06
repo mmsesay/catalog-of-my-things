@@ -4,8 +4,8 @@ require 'date'
 
 describe Game do
   before :each do
-    @game1 = Game.new(Time.now, Time.now)
-    @game2 = Game.new(Date.parse('1989/01/01'), Date.parse('1987/01/01'))
+    @game1 = Game.new('Raod Rush', Time.now, Time.now)
+    @game2 = Game.new('Mad Max', Date.parse('1989/01/01'), Date.parse('1987/01/01'))
     @author = Author.new('Steven', 'Gerrard')
     @author.add_item(@game1)
     @author.add_item(@game2)
@@ -35,6 +35,10 @@ describe Game do
 
     it 'should return true for can be archived' do
       expect(@game2.can_be_archived?).to eq true
+    end
+
+    it 'author should have 2 items' do
+      expect(@game1.author.items.size).to eq 2
     end
   end
 end
