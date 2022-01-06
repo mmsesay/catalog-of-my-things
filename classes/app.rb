@@ -3,6 +3,7 @@ require_relative './music_album'
 require_relative './genre'
 require_relative './label'
 require_relative './author'
+require_relative './game'
 require_relative '../modules/preserver_module'
 
 class App
@@ -16,6 +17,7 @@ class App
     @authors = []
     @albums = []
     @genres = []
+    @games = []
 
     load_data
   end
@@ -68,6 +70,17 @@ class App
 
     @albums << hash
     @genres << genre_hash
+  end
+
+  def add_game(new_game)
+    new_game_instance = Game.new(*new_game)
+    hash = {
+      'name' => new_game_instance.name,
+      'publish_date' => new_game_instance.publish_date,
+      'last_played_at' => new_game_instance.last_played_at,
+      'multiplayer' => new_game_instance.multiplayer
+    }
+    @games << hash
   end
 
   def list_all_books
@@ -135,12 +148,26 @@ class App
     end
   end
 
+  def list_all_games
+    puts "\nNote: No Games available." if @games.empty?
+
+    puts "\n---------------------------------------------"
+    puts "\nALL GAMES\n\n"
+    puts "\nName \t| Publish Date \t| Last Played \t| Multiplayer"
+    puts '-------------------------------------------------'
+    @games.each do |game|
+      puts "#{game['name']} \t\t| #{game['publish_date']} \t| #{game['last_played_at']} \t| #{game['multiplayer']}"
+      puts "\n-------------------------------------------------"
+    end
+  end
+
   def preserve_files
     save_data_as_json(@books, 'books')
     save_data_as_json(@authors, 'authors')
     save_data_as_json(@labels, 'labels')
     save_data_as_json(@albums, 'albums')
     save_data_as_json(@genres, 'genres')
+    save_data_as_json(@games, 'games')
   end
 
   private
@@ -151,5 +178,6 @@ class App
     @authors = load_file('authors')
     @albums = load_file('albums')
     @genres = load_file('genres')
+    @games = load_file('games')
   end
 end
