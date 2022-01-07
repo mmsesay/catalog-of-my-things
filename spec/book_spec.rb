@@ -1,9 +1,10 @@
+require 'date'
 require './classes/book'
 
 describe Book do
   context 'Book class tests' do
     before(:each) do
-      @book = Book.new('John Doe', '2022/1/5', 'good')
+      @book = Book.new('John Doe', Date.parse('2022/1/5'), 'good')
     end
 
     it 'should be a Book class instance' do
@@ -19,15 +20,11 @@ describe Book do
     end
 
     it 'should return correct book publish_date' do
-      expect(@book.publish_date).to eq '2022/1/5'
+      expect(@book.publish_date).to eq Date.parse('2022/1/5')
     end
 
     it 'should return false unless @archived || cover_state == bad' do
       expect(@book.can_be_archived?).to eq false
-    end
-
-    it 'should return false for parent archive' do
-      expect(@book.archived).to eq false
     end
   end
 end
