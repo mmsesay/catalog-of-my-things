@@ -18,6 +18,10 @@ Metrics/ClassLength:
 Metrics/BlockLength:
   IgnoredMethods: ['describe']
   Max: 30
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
 
 
 Style/Documentation:
@@ -32,6 +36,8 @@ Style/DefWithParentheses:
   Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
+Style/OptionalBooleanParameter:
+  Enabled: false
 
 Layout/HashAlignment:
   EnforcedColonStyle: key
@@ -49,5 +55,7 @@ Style/HashEachMethods:
 Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
+  Enabled: false
+Layout/LineLength:
   Enabled: false
   
