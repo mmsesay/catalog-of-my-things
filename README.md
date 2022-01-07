@@ -1,6 +1,11 @@
 # catalog-of-my-things
 A console app that will help you to keep a record of different types of things you won: books, music albums, movies, and games.
 
+Application Demo                   |
+:----------------------------------|
+![](./demo/catalog-of-things.gif)  |
+
+
 ## Built With
 
 - Ruby
@@ -11,9 +16,8 @@ A console app that will help you to keep a record of different types of things y
 **installed on your local environment**
 
 - **To get a local copy of the repository please run the following commands on your terminal:**
-- **$ git clone https://github.com/...**
-- **$ cd ...**
-- **$ git checkout ...**
+- **$ git clone https://github.com/mmsesay/catalog-of-my-things.git**
+- **$ cd catalog-of-my-things.**
 - **$ run `bundle install` to couple all dependacies**
 - **$ run `ruby main.rb`**
 - **$ for test run `rspec spec`**
@@ -29,9 +33,11 @@ A console app that will help you to keep a record of different types of things y
 - GitHub: [@see-why](https://github.com/see-why)
 - LinkedIn: [C.Iyadi](https://www.linkedin.com/in/cyril-iyadi-83517270/)
 
-👤 **Henry Eze**
+👤 **Henry Kc**
 
-- GitHub: [@HENRYKC24](https://github.com/HENRYKC24)
+- GitHub: [@githubhandle](https://github.com/henrykc24)
+- Twitter: [@twitterhandle](https://twitter.com/henrykc24)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/henry-kc)
 
 ## 🤝 Contributing
 
